@@ -1,5 +1,3 @@
-> **DISCLAIMER**: This is not my code, those are not my binaries, this is not my repo. The original repository was remove by github after AMD asked for deletion. This will sooner or later also happen to this rpository, so please clone it and re-upload as soon as you see this one being deleted. The original auhor has been removed from the git history. Since I do not have the same contacts as OP - do not expect any updates to this repository. If the original source of the binaries wants to provide me with new versions, I will more than happily upload them.
-
 # amdvbflash
 
 AMD vBIOS flash utility for Linux.
@@ -43,6 +41,11 @@ This will show you all possible commands and options that are available.
 sudo ./amdvbflash -h
 ```
 
-## Contributing
+## Known Issues
 
-Our goal is to reverse engineer the flash utility. For this reason any help is welcome.
+* Incorrect dGPU Behavior
+
+The AMDVBFlash tool, used for flashing the VBIOS image to dGPU, does not communicate with the ROM Controller specifically when the driver is present. This is because the driver, as part of its runtime power management feature, puts the dGPU to a sleep state.
+
+As a workaround, users can run `amdgpu.runpm=0`, which temporarily disables the runtime power management feature from the driver and dynamically changes some power control-related sysfs files.
+
