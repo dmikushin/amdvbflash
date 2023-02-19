@@ -43,6 +43,10 @@ sudo ./amdvbflash -h
 
 ## Known Issues
 
+* AMDVBFlash tool does not work in Secure Boot enabled Linux
+
+In order to run AMDVBFlash tool, disable Secure Boot.
+
 * Incorrect dGPU Behavior
 
 The AMDVBFlash tool, used for flashing the VBIOS image to dGPU, does not communicate with the ROM Controller specifically when the driver is present. This is because the driver, as part of its runtime power management feature, puts the dGPU to a sleep state.
